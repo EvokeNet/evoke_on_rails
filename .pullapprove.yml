@@ -10,3 +10,7 @@ groups:
       enabled: false
     users:
     - JayantGandhi
+    conditions:
+      branches:
+        - master
+        - dev
