@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -38,8 +36,11 @@ gem 'react-rails'
 # browserify for rails
 gem 'browserify-rails'
 
-# zurb foundation for pretty things
+# zurb foundation for rails
 gem 'foundation-rails'
+
+# devise for authentication
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

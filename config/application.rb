@@ -16,5 +16,8 @@ module EvokeOnRails
     config.generators do |g|
       g.javascript_engine :js
     end
+
+    config.web_console.whitelisted_ips = '192.168.1.36'
+
   end
 end
