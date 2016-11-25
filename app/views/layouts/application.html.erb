@@ -25,7 +25,10 @@
           <li>
             <a href="#">Logged in as <strong><%= current_user.email %></strong></a>
             <ul class="menu vertical">
-              <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+              <% if can? :manage, User %>
+                <li><%= link_to 'Manage users', users_path, :class => 'navbar-link' %></li>
+              <% end %>
+              <li><%= link_to 'Edit profile', edit_user_registration_path(current_user), :class => 'navbar-link' %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
             </ul>
           </li>
