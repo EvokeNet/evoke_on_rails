@@ -42,6 +42,9 @@ gem 'foundation-rails'
 # devise for authentication
 gem 'devise'
 
+# paperclip for image upload
+gem 'paperclip', '~> 4.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
