@@ -19,5 +19,7 @@ module EvokeOnRails
 
     config.web_console.whitelisted_ips = '192.168.1.36'
 
+    config.i18n.available_locales = [:en, :es, :pt]
+
   end
 end

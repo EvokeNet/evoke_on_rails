@@ -2,12 +2,15 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  scope "/admin" do
-	resources :users
-  end
+  scope "(:locale)", locale: /en|es/ do
 
-  get 'home', to: 'home#index', as: 'home'
+	  scope "/admin" do
+		resources :users
+	  end
 
-  root to: 'home#index'
+	  get 'home', to: 'home#index', as: 'home'
+
+	  root to: 'home#index'
+	end
 
 end

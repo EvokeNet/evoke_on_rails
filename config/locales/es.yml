@@ -1,5 +1,5 @@
 es:
   hello: "Hola mundo"
-  users:
+  home:
     index:
-      title: 'Usuarios'
+      welcome: 'Ola'
