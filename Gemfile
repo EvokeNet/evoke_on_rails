@@ -67,4 +67,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Active Admin
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'activeadmin', '~> 1.0.0.pre4'
