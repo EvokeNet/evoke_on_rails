@@ -83,4 +83,21 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  # Devise Email Sender
+  config.action_mailer.default_url_options = { :host => "change-here-heroku-url" }
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.mailtrap.io",
+    :port => 2525 ,
+    :domain => 'mailtrap.io',
+    :user_name => '80f5f1aef4ae15',
+    :password => '8db4cd615a4d6b',
+    :authentication => :plain,
+    :enable_starttls_auto => true,
+    :ssl =>false
+  }
+  
+  # Don't let mailer raise errors
+  config.action_mailer.raise_delivery_errors = false
+  
 end
