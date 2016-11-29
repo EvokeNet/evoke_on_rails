@@ -85,7 +85,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   # Devise Email Sender
-  config.action_mailer.default_url_options = { :host => "change-here-heroku-url" }
+  config.action_mailer.default_url_options = { :host => "evoke-staging.herokuapp.com" }
   config.action_mailer.smtp_settings = {
     :address => "smtp.mailtrap.io",
     :port => 2525 ,
