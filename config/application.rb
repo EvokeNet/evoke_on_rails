@@ -16,5 +16,8 @@ module EvokeOnRails
     config.generators do |g|
       g.javascript_engine :js
     end
+
+    config.i18n.available_locales = [:en, :es, :pt]
+
   end
 end
