@@ -48,6 +48,9 @@ gem 'paperclip', '~> 4.3'
 # i18n for more localization options
 gem 'rails-i18n'
 
+# country select for options
+gem 'country_select', '~> 2.5', '>= 2.5.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

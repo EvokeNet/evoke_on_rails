@@ -21,7 +21,7 @@
   <strong>Birthdate:</strong>
   <%= @user.birthdate %>
 </p>
-
+ 
 <p>
   <strong>Country:</strong>
   <%= @user.country %>
@@ -32,5 +32,5 @@
   <%= image_tag @user.image.url(:thumb) %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_registration_path(@user) %> |
+<%= link_to 'Back', root_path %>

@@ -24,3 +24,5 @@ en:
   home:
     index:
       welcome: 'Hey'
+  active_admin:
+    users: 'Users'
