@@ -3,19 +3,19 @@
 <%= form_for :mail, url: {action: "send_email"} do |m| %>
   <div class="row">
     <div class="large-12 columns">
-      <b><b><%= m.label :to %>:</b><br>
+      <b><b><%= m.label :to %></b><br>
       <%= m.text_field :to %>    
     </div>
   </div>
   <div class="row">
     <div class="large-12 columns">
-      <b><%= m.label :subject %>:</b><br>
+      <b><%= m.label :subject %></b><br>
       <%= m.text_field :subject %> 
     </div>
   </div>
   <div class="row">
     <div class="large-12 columns">
-      <b><%= m.label :body %>:</b><br>
+      <b><%= m.label :body %></b><br>
       <%= m.text_area :body, :rows => 10 %>
     </div>
   </div>

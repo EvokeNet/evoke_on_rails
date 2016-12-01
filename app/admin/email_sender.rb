@@ -1,14 +1,14 @@
 ActiveAdmin.register_page "EmailSender" do
   content do
-    puts params[:mail].inspect
+    
     if (params[:mail]).present? 
-      mail_params = params.require(:mail).permit(:from, :to, :subject, :body)
-      @mail = MailValidator.new(mail_params)
+      @mail = MailValidator.new(params[:to])
     else
       @mail = MailValidator.new()
     end
     render partial: 'email_sender', :mail => @mail
   end
+  
   
   page_action :send_email, method: :post do
     if (params[:mail]).present? 
@@ -23,9 +23,9 @@ ActiveAdmin.register_page "EmailSender" do
       #@mail.deliver
       redirect_to admin_emailsender_path, notice: "Your email has been delivered" unless @mail.errors.any?
       @mail.errors.full_messages.each do |msg|
-        flash[:error] = msg
+        #flash[:error] = msg
       end
-      render admin_emailsender_path, :mail => @mail
+      render action: 'index', :mail => @mail, :layout => false
     end
   end
 
