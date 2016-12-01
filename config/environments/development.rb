@@ -53,17 +53,25 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Devise
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
-  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   
+  #Web-Console
+  config.web_console.whitelisted_ips = '192.168.1.36'
+  
+  # Devise Email Sender
+  config.action_mailer.default_url_options = { :host => "evoke-guihrmsfo.c9users.io" }
   config.action_mailer.smtp_settings = {
-   :address              => "smtp.mailtrap.io",
-   :port                 => 465,
-   :user_name            => ENV['80f5f1aef4ae15'],
-   :password             => ENV['8db4cd615a4d6b'],
-   :authentication       => "plain",
-   :enable_starttls_auto => true
+    :address => "smtp.mailtrap.io",
+    :port => 2525 ,
+    :domain => 'mailtrap.io',
+    :user_name => '80f5f1aef4ae15',
+    :password => '8db4cd615a4d6b',
+    :authentication => :plain,
+    :enable_starttls_auto => true,
+    :ssl =>false
   }
+  
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
 
 end

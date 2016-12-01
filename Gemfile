@@ -54,11 +54,13 @@ gem 'country_select', '~> 2.5', '>= 2.5.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.5'
+  gem 'jasmine'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
+  gem 'web-console', '~> 2.0'
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -67,7 +69,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'cache'
 
 # Active Admin
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'activeadmin', '~> 1.0.0.pre4'
