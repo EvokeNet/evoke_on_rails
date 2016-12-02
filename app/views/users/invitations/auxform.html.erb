@@ -1,0 +1,38 @@
+<h2><%= t "devise.invitations.new.header" %></h2>
+
+<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
+  <%= devise_error_messages! %>
+
+<% resource.class.invite_key_fields.each do |field| -%>
+  <div class="field">
+      <%= f.label field %><br />
+      <%= f.text_field field %>
+    </div>
+<% end -%>
+
+<div>
+    <% resource.class.invite_key_fields.each do |field| -%>
+        <%= f.label field %><br />
+        <%= f.email_field field, name: "user[email][]", placeholder: "Invitation email", required: true %></p>
+
+        <span id="createNewTextbox" ></span>
+        <button id="btnLinkCreate">
+          + INVITE MORE
+        </button>
+    <% end -%>
+</div>
+
+<div class="field">
+  <%= f.label :role %><br />
+  <% # f.select field, User.roles.keys, {} %>
+  <%= f.select(:role, [['Student', 'student'], ['Mentor', 'mentor'], ['Teacher', 'teacher']]) %>
+</div>
+
+  <p><%= f.submit t("devise.invitations.new.submit_button") %></p>
+<% end %>
+
+<script type="text/javascript">
+$('#btnLinkCreate').click(function(){
+  $('#createNewTextbox').append('<input type="email" id="email" name="user[email][]" placeholder="Invitation email" required/>');
+});
+</script>

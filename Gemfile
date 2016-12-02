@@ -42,6 +42,9 @@ gem 'foundation-rails'
 # devise for authentication
 gem 'devise'
 
+#devise to invite people via e-mail
+gem 'devise_invitable', '~> 1.7.0'
+
 # paperclip for image upload
 gem 'paperclip', '~> 4.3'
 

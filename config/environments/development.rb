@@ -53,13 +53,13 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Devise
-  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: '192.168.1.36', port: 3000 }
   
   #Web-Console
   config.web_console.whitelisted_ips = '192.168.1.36'
   
   # Devise Email Sender
-  config.action_mailer.default_url_options = { :host => "evoke-guihrmsfo.c9users.io" }
+  # config.action_mailer.default_url_options = { :host => "evoke-guihrmsfo.c9users.io" }
   config.action_mailer.smtp_settings = {
     :address => "smtp.mailtrap.io",
     :port => 2525 ,

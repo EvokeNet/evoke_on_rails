@@ -15,9 +15,9 @@ ActiveAdmin.register_page "Email Sender" do
       @mail.from = "evokenettech@gmail.com"
       @mail.deliver
       redirect_to admin_emailsender_path, notice: "Your email has been delivered" and return unless @mail.errors.any? 
-      @mail.errors.full_messages.each do |msg|
-        flash[:error] = msg
-      end
+      # @mail.errors.full_messages.each do |msg|
+      #   flash[:error] = msg
+      # end
     end
     render action: 'index', :mail => @mail, :layout => false
   end

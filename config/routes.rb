@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
 	scope "(:locale)" do
-	  devise_for :admin_users, ActiveAdmin::Devise.config
-	  ActiveAdmin.routes(self)
-	  devise_for :users
+	  	devise_for :admin_users, ActiveAdmin::Devise.config
+	  	ActiveAdmin.routes(self)
+	  
+	  	# devise_for :users
+	  	
+	  	devise_for :users, :controllers => { :invitations => 'invitations' }
 
 	  	# scope "(:locale)", locale: /en|es/ do
 
