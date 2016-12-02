@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -38,17 +36,28 @@ gem 'react-rails'
 # browserify for rails
 gem 'browserify-rails'
 
-# zurb foundation for pretty things
+# zurb foundation for rails
 gem 'foundation-rails'
+
+# devise for authentication
+gem 'devise'
+
+# paperclip for image upload
+gem 'paperclip', '~> 4.3'
+
+# i18n for more localization options
+gem 'rails-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.5'
+  gem 'jasmine'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
+  gem 'web-console', '~> 2.0'
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -57,3 +66,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'cache'
+
+# Active Admin
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'jquery-ui-rails', '~> 4.2.1'
+gem 'activeadmin', '~> 1.0.0.pre4'

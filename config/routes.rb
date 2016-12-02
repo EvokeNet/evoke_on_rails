@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
 
-  get 'home', to: 'home#index', as: 'home'
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :users
 
-  root to: 'home#index'
+  scope "(:locale)", locale: /en|es/ do
+
+	  scope "/admin" do
+		resources :users
+	  end
+
+	  get 'home', to: 'home#index', as: 'home'
+
+	  root to: 'home#index'
+	end
 
 end
