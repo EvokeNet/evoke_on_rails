@@ -13,6 +13,27 @@ class ApplicationController < ActionController::Base
   	{ locale: I18n.locale }
   end
 
+  def authenticate_admin_user!
+    authenticate_user!
+    unless current_user.role?(:admin)
+      flash[:alert] = "You are not authorized to access this resource!"
+      redirect_to root_path
+    end
+  end
+
+  # def authenticate_admin_user!
+  #   authenticate_user! 
+  #   unless current_user.admin?
+  #     flash[:alert] = "This area is restricted to administrators only."
+  #     redirect_to root_path 
+  #   end
+  # end
+   
+  def current_admin_user
+    return nil if user_signed_in? && !current_user.admin?
+    current_user
+  end
+
   protected
 
     def configure_permitted_parameters
@@ -23,5 +44,12 @@ class ApplicationController < ActionController::Base
   	def set_locale
   	  I18n.locale = extract_locale || I18n.default_locale
   	end
+
+    def authenticate_inviter!
+      unless current_user.role?(:admin)
+        flash[:alert] = "You are not authorized to access this resource!"
+        redirect_to root_path
+      end
+    end
 
 end

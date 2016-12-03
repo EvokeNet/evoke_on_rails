@@ -17,15 +17,36 @@ ActiveAdmin.register User do
 
   permit_params :name, :lastname, :email, :role, :bio, :birthdate, :country, :password, :password_confirmation
 
+  action_item do
+    link_to 'Invite New User', new_invitation_admin_users_path
+  end
+
+  collection_action :new_invitation do
+      @user = User.new
+  end 
+
+  collection_action :send_invitation, :method => :post do
+      @user = User.invite!(params[:user], current_user)
+      if @user.errors.empty?
+          flash[:success] = "User has been successfully invited." 
+          redirect_to admin_users_path 
+      else
+          messages = @user.errors.full_messages.map { |msg| msg }.join
+          flash[:error] = "Error: " + messages
+          redirect_to new_invitation_admin_users_path
+      end
+  end
+
   index do
     selectable_column
-    id_column
     column :name
     column :lastname
     column :email
     column :birthdate
     column :country
+    column :role
     column :current_sign_in_at
+    column :last_sign_in_at
     column :sign_in_count
     column :created_at
     actions
@@ -34,9 +55,9 @@ ActiveAdmin.register User do
   filter :name
   filter :email
   filter :role
-  filter :current_sign_in_at
-  filter :sign_in_count
-  filter :created_at
+  # filter :current_sign_in_at
+  # filter :sign_in_count
+  # filter :created_at
 
   form do |f|
     f.inputs "Admin Details" do

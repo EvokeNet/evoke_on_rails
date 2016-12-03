@@ -1,0 +1,17 @@
+<h2>Send invitation</h2>
+
+<%= form_for @user, :url => admin_invite_users_send_invitation_path do |f| %>
+
+   	<div class="field">
+		<%= f.label :email %><br />
+		<%= f.text_field :email, :required => true %>
+	</div><br />
+
+	<div class="field">
+		<%= f.label :role %><br />
+		<%= f.select(:role, [['Student', 'student'], ['Mentor', 'mentor'], ['Teacher', 'teacher']]) %>
+	</div>
+
+  	<p><%= f.submit t("devise.invitations.new.submit_button") %></p>
+
+<% end %>

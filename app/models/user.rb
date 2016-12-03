@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include DeviseInvitable::Inviter
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
@@ -13,4 +14,8 @@ class User < ApplicationRecord
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"] 
   do_not_validate_attachment_file_type :image
   
+  def role?(r)
+    role.include? r.to_s
+  end
+
 end
