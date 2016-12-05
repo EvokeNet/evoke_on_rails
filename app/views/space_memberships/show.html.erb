@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @space_membership.user %>
+</p>
+
+<p>
+  <strong>Space:</strong>
+  <%= @space_membership.space %>
+</p>
+
+<%= link_to 'Edit', edit_space_membership_path(@space_membership) %> |
+<%= link_to 'Back', space_memberships_path %>

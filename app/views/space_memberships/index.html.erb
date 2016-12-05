@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Space Memberships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Space</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @space_memberships.each do |space_membership| %>
+      <tr>
+        <td><%= space_membership.user %></td>
+        <td><%= space_membership.space %></td>
+        <td><%= link_to 'Show', space_membership %></td>
+        <td><%= link_to 'Edit', edit_space_membership_path(space_membership) %></td>
+        <td><%= link_to 'Destroy', space_membership, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Space Membership', new_space_membership_path %>

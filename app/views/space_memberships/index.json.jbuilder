@@ -1,0 +1,1 @@
+json.array! @space_memberships, partial: 'space_memberships/space_membership', as: :space_membership

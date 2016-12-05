@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :posts
+  resources :space_memberships
 	scope "(:locale)" do
 	  	# devise_for :admin_users, ActiveAdmin::Devise.config
 

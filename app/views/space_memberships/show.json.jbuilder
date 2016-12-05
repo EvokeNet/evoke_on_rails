@@ -1,0 +1,1 @@
+json.partial! "space_memberships/space_membership", space_membership: @space_membership

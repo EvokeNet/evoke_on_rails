@@ -12,6 +12,7 @@
       <% if current_user.admin? %>
         <li><%= link_to 'Admin Panel', admin_root_path, :class => 'navbar-link' %></li>
       <% end %>
+      <li><%= link_to 'Spaces', space_memberships_path, :class => 'navbar-link' %></li>
       <li><%= link_to 'Edit profile', edit_user_registration_path(current_user), :class => 'navbar-link' %></li>
       <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
     </ul>
