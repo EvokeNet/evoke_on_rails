@@ -21,5 +21,7 @@
 .byebug_history
 
 config/database.yml
+config/environments/development.rb
+
 public/system/*
 public/system
