@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :posts
-  resources :space_memberships
 	scope "(:locale)" do
 	  	# devise_for :admin_users, ActiveAdmin::Devise.config
 
@@ -35,6 +33,13 @@ Rails.application.routes.draw do
 		 #  scope "/admin" do
 			# resources :users
 		 #  end
+
+		resources :posts
+  		resources :spaces
+  		# resources :space_memberships
+
+  		post 'space_memberships', to: 'space_memberships#join', as: 'space_join'
+  		delete 'space_memberships/:id', to: 'space_memberships#unjoin', as: 'space_unjoin'
 
 		get 'profile/:id', to: 'users#show', as: 'profile'
 

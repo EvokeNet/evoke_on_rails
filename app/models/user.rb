@@ -14,6 +14,9 @@ class User < ApplicationRecord
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"] 
   do_not_validate_attachment_file_type :image
   
+  has_many :space_memberships
+  has_many :spaces, through: :space_memberships
+  
   def role?(r)
     role.include? r.to_s
   end
