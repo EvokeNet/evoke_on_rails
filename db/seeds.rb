@@ -5,5 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create!(email: 'guihrmsfo5@gmail.com', password: 'password', password_confirmation: 'password')
+User.create!(id: 0, email: 'guihrmsfo5@gmail.com', password: 'password', password_confirmation: 'password')
+Space.create!(id: 0, name: "Teste", description: "teste", status: 1, join_policy: 0)
+SpaceMembership.create!(user_id: 0, space_id: 0)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
