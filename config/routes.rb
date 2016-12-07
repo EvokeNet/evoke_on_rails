@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :posts
+	resources :posts, :except => [:new]
   resources :space_memberships
   resources :spaces
   

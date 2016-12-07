@@ -1,32 +1,29 @@
-<div class="panel">
-  <h4><%= t 'New Post' %></h4>
-  <%= form_for(new_post) do |f| %>
-    <% if new_post.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(new_post.errors.count, "error") %> prohibited this post from being saved:</h2>
-  
-        <ul>
-        <% new_post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-    
-    <%= f.hidden_field :space_id %>
-  
-    <div class="field">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-    </div>
-  
-    <div class="field">
-      <%= f.label :body %>
-      <%= f.text_area :body %>
-    </div>
-  
-    <div class="actions">
-      <%= f.submit %>
+<%= form_for(post) do |f| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
     </div>
   <% end %>
-</div>
+  
+  <%= f.hidden_field :space_id %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
