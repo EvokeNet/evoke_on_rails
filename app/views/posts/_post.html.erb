@@ -3,4 +3,13 @@
    - <%= t 'By' %> <%= post.user.email %>
   <p><%= post.body %></p>
   <%= t 'At' %> <%= post.created_at %>
+  
+  <button class="topcorner button settings_button" type="button" data-toggle="settings<%=post.id %>">
+    <i class="fa fa-angle-down"></i>
+  </button>
+  <div class="dropdown-pane" id="settings<%=post.id %>" data-dropdown data-auto-focus="true">
+    <div><%= link_to 'Edit', edit_post_path(post) %></div>  
+    <div><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+  </div>
+  
 </div>

@@ -1,3 +1,23 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// settings button
+.settings_button{
+  color: gray;
+  background-color: white;
+}  
+
+// settings button hover
+.settings_button:hover{
+  background-color: gray;
+}  
+  
+// move settings button to top corner  
+.topcorner{
+   position:absolute;
+   top:0;
+   right:0;
+   margin-top: 1.5%;
+   margin-right: 1.5%;
+}
