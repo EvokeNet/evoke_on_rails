@@ -20,6 +20,8 @@ require 'rails_helper'
 
 RSpec.describe SpaceMembershipsController, type: :controller do
 
+  Devise::Test::ControllerHelpers
+
   # This should return the minimal set of attributes required to create a valid
   # SpaceMembership. As you add validations to SpaceMembership, be sure to
   # adjust the attributes here as well.
@@ -54,8 +56,9 @@ RSpec.describe SpaceMembershipsController, type: :controller do
 
   describe "GET #new" do
     it "assigns a new space_membership as @space_membership" do
+      space_membership = SpaceMembership.create! valid_attributes
       get :new, params: {}, session: valid_session
-      expect(assigns(:space_membership)).to be_a_new(SpaceMembership)
+      expect(assigns(:space_membership)).to be_a_new(space_membership)
     end
   end
 

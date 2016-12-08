@@ -20,6 +20,8 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
 
+  Devise::Test::ControllerHelpers
+  
   # This should return the minimal set of attributes required to create a valid
   # Post. As you add validations to Post, be sure to
   # adjust the attributes here as well.
@@ -54,8 +56,9 @@ RSpec.describe PostsController, type: :controller do
 
   describe "GET #new" do
     it "assigns a new post as @post" do
+      post = Post.create! valid_attributes
       get :new, params: {}, session: valid_session
-      expect(assigns(:post)).to be_a_new(Post)
+      expect(assigns(:post)).to be_a_new(post)
     end
   end
 

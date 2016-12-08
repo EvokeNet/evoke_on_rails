@@ -79,10 +79,11 @@ ActiveRecord::Schema.define(version: 20161205191309) do
   create_table "spaces", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.boolean  "status"
-    t.integer  "join_policy"
+    t.integer  "visibility"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_spaces_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -134,4 +135,5 @@ ActiveRecord::Schema.define(version: 20161205191309) do
   add_foreign_key "posts", "users"
   add_foreign_key "space_memberships", "spaces"
   add_foreign_key "space_memberships", "users"
+  add_foreign_key "spaces", "users"
 end

@@ -54,6 +54,13 @@ gem 'rails-i18n'
 # country select for options
 gem 'country_select', '~> 2.5', '>= 2.5.2'
 
+# assigns comes from thsi gem
+gem 'rails-controller-testing'
+
+# for user cretaing in rspec
+# gem 'factory_girl', '~> 4.5'
+gem "factory_girl_rails", "~> 4.0"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

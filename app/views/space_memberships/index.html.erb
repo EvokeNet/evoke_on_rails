@@ -14,8 +14,8 @@
   <tbody>
     <% @space_memberships.each do |space_membership| %>
       <tr>
-        <td><%= space_membership.user %></td>
-        <td><%= space_membership.space %></td>
+        <td><%= space_membership.user.name %></td>
+        <td><%= space_membership.space.name %></td>
         <td><%= link_to 'Show', space_membership %></td>
         <td><%= link_to 'Edit', edit_space_membership_path(space_membership) %></td>
         <td><%= link_to 'Destroy', space_membership, method: :delete, data: { confirm: 'Are you sure?' } %></td>

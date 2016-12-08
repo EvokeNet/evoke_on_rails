@@ -22,13 +22,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :status %>
-    <%= f.check_box :status %>
-  </div>
-
-  <div class="field">
-    <%= f.label :join_policy %>
-    <%= f.number_field :join_policy %>
+    <%= f.label :visibility %><br />
+    <%= f.select :visibility, Space.visibilities.keys, {} %>
   </div>
 
   <div class="actions">

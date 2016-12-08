@@ -20,6 +20,8 @@ require 'rails_helper'
 
 RSpec.describe SpacesController, type: :controller do
 
+  Devise::Test::ControllerHelpers
+
   # This should return the minimal set of attributes required to create a valid
   # Space. As you add validations to Space, be sure to
   # adjust the attributes here as well.
@@ -54,8 +56,9 @@ RSpec.describe SpacesController, type: :controller do
 
   describe "GET #new" do
     it "assigns a new space as @space" do
+      space = Space.create! valid_attributes
       get :new, params: {}, session: valid_session
-      expect(assigns(:space)).to be_a_new(Space)
+      expect(assigns(:space)).to be_a_new(space)
     end
   end
 

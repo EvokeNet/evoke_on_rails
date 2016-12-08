@@ -1,28 +1,39 @@
 require 'rails_helper'
 
 RSpec.describe "spaces/index", type: :view do
+
+  include Devise::TestHelpers                          
+  include Warden::Test::Helpers
+  
   before(:each) do
+    @user = assign(:user, User.create!(
+      :name => "New",
+      :lastname => "User",
+      :password => "password",
+      :email => "user@example.com"
+    ))
+
     assign(:spaces, [
       Space.create!(
         :name => "Name",
         :description => "MyText",
-        :status => false,
-        :join_policy => 2
+        :visibility => :open,
+        :user => @user
       ),
       Space.create!(
         :name => "Name",
         :description => "MyText",
-        :status => false,
-        :join_policy => 2
+        :visibility => :open,
+        :user => @user
       )
     ])
   end
-
+  
   it "renders a list of spaces" do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => false.to_s, :count => 2
-    assert_select "tr>td", :text => 2.to_s, :count => 2
+    assert_select "tr>td", :text => "", :count => 2
+    assert_select "tr>td", :text => "New".to_s, :count => 2
   end
 end

@@ -11,13 +11,13 @@
 </p>
 
 <p>
-  <strong>Status:</strong>
-  <%= @space.status %>
+  <strong>Visibility:</strong>
+  <%= @space.visibility %>
 </p>
 
 <p>
-  <strong>Join policy:</strong>
-  <%= @space.join_policy %>
+  <strong>User:</strong>
+  <%= @space.user.name %>
 </p>
 
 <%= link_to 'Edit', edit_space_path(@space) %> |

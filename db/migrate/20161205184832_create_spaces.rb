@@ -3,8 +3,8 @@ class CreateSpaces < ActiveRecord::Migration[5.0]
     create_table :spaces do |t|
       t.string :name
       t.text :description
-      t.boolean :status
-      t.integer :join_policy
+      t.integer :visibility
+      t.belongs_to :user, foreign_key: true
 
       t.timestamps
     end

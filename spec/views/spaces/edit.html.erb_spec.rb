@@ -5,8 +5,8 @@ RSpec.describe "spaces/edit", type: :view do
     @space = assign(:space, Space.create!(
       :name => "MyString",
       :description => "MyText",
-      :status => false,
-      :join_policy => 1
+      :visibility => :open,
+      :user => nil
     ))
   end
 
@@ -19,9 +19,8 @@ RSpec.describe "spaces/edit", type: :view do
 
       assert_select "textarea#space_description[name=?]", "space[description]"
 
-      assert_select "input#space_status[name=?]", "space[status]"
+      assert_select "select#space_visibility[name=?]", "space[visibility]"
 
-      assert_select "input#space_join_policy[name=?]", "space[join_policy]"
     end
   end
 end

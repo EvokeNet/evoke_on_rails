@@ -26,3 +26,7 @@ en:
       welcome: 'Hey'
   active_admin:
     users: 'Users'
+  spaces:
+    index:
+      join: 'Join'
+      leave: 'Leave'
