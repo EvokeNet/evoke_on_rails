@@ -10,6 +10,8 @@
       </ul>
     </div>
   <% end %>
+  
+  <%= f.hidden_field :space_id %>
 
   <div class="field">
     <%= f.label :title %>
@@ -19,16 +21,6 @@
   <div class="field">
     <%= f.label :body %>
     <%= f.text_area :body %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :space_id %>
-    <%= f.text_field :space_id %>
   </div>
 
   <div class="actions">

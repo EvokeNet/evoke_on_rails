@@ -15,6 +15,8 @@ RSpec.describe "spaces/show", type: :view do
       :visibility => :open,
       :user => @user
     ))
+    @space = Space.where(id: @space.id).includes(:post).take
+    @post = Post.new(space_id: @space.id)
   end
 
   it "renders attributes in <p>" do

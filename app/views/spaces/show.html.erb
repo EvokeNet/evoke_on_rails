@@ -1,14 +1,13 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<%= link_to 'Return to spaces', spaces_path %>
+
+<h2>
   <%= @space.name %>
-</p>
+</h2>
 
-<p>
-  <strong>Description:</strong>
+<h3>
   <%= @space.description %>
-</p>
+</h3>
 
 <p>
   <strong>Visibility:</strong>
@@ -20,5 +19,22 @@
   <%= @space.user.name %>
 </p>
 
-<%= link_to 'Edit', edit_space_path(@space) %> |
-<%= link_to 'Back', spaces_path %>
+<div class="row">
+  <div class="large-6 large-centered columns">
+  
+    <div class="panel">
+      <h4><%= t 'New Post' %></h4>
+      <%= render :partial => "posts/form", locals: {post: @post} %>
+    </div>
+    
+    <hr>
+    
+    <% if @space.post.first.nil? %>
+      <b><%= t 'No posts yet' %></b>
+    <% else %>
+      <% @space.post.order("created_at desc").each do |post| %>
+      <%= render :partial => "posts/post", locals: {post: post} %>
+      <% end %>
+    <% end %>
+  </div>
+</div>  

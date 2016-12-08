@@ -18,10 +18,6 @@ RSpec.describe "posts/edit", type: :view do
       assert_select "input#post_title[name=?]", "post[title]"
 
       assert_select "textarea#post_body[name=?]", "post[body]"
-
-      assert_select "input#post_user_id[name=?]", "post[user_id]"
-
-      assert_select "input#post_space_id[name=?]", "post[space_id]"
     end
   end
 end
