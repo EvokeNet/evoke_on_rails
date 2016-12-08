@@ -6,15 +6,16 @@ RSpec.describe "Posts", type: :request do
 
   describe "GET /posts" do
     it "works! (now write some real specs)" do
-  #   	FactoryGirl.define do
-		#     factory :user do
-		#         email "aabb@hh.de"
-		#         password "rubyruby"
-		#     end
-		# end
-  #     @user ||= FactoryGirl.create :user
-  #     sign_in @user
-      sign_in_as_a_user
+      FactoryGirl.factories.clear
+      FactoryGirl.find_definitions  
+    	FactoryGirl.define do
+		    factory :user do
+		        email "aabb@hh.de"
+		        password "rubyruby"
+		    end
+		  end
+      @user ||= FactoryGirl.create :user
+      sign_in @user
       get posts_path
       expect(response).to have_http_status(200)
     end
