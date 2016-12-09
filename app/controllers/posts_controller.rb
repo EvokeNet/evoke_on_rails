@@ -1,4 +1,22 @@
 class PostsController < InheritedResources::Base
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
+  # PATCH/PUT
+  
+  def update
+    respond_to do |format|
+      if @post.update(post_params)
+        @notice = 'User was successfully updated.'
+        format.js
+      end
+    end
+  end
+
+  def edit
+    respond_to do |format|               
+        format.js
+    end  
+  end  
   
   # POST /posts
   # POST /posts.json
@@ -20,6 +38,10 @@ class PostsController < InheritedResources::Base
 
 
   private
+
+    def set_post
+      @post = Post.find(params[:id])
+    end
 
     def post_params
       params.require(:post).permit(:title, :body, :user_id, :space_id)

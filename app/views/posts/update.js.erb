@@ -1,0 +1,1 @@
+$('#post_content<%= @post.id%>').html("<%= escape_javascript(render :partial => 'update', post: @post) %>"); 

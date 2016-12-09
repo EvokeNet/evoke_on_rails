@@ -1,0 +1,6 @@
+<div id="post_content<%= post.id%>">
+    <b><%= post.title %></b>
+     - <%= t 'By' %> <%= post.user.email %>
+    <p><%= post.body %></p>
+    <%= t 'At' %> <%= post.created_at %>
+</div>
