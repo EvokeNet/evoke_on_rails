@@ -1,1 +1,1 @@
-$('#post_content<%= @post.id%>').html("<%= escape_javascript(render :partial => 'edit', post: @post) %>"); 
+$('#post_content_<%= @post.id%>').html("<%= escape_javascript(render :partial => 'edit', post: @post) %>"); 

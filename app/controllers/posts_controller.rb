@@ -1,8 +1,16 @@
 class PostsController < InheritedResources::Base
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  # DELETE /posts/1
+  def destroy
+    @post.destroy
+    respond_to do |format|
+      @notice = 'Post was successfully destroyed.'
+      format.js
+    end
+  end
+
   # PATCH/PUT
-  
   def update
     respond_to do |format|
       if @post.update(post_params)
