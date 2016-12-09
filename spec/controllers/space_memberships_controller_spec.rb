@@ -159,4 +159,25 @@ RSpec.describe SpaceMembershipsController, type: :controller do
     end
   end
 
+  describe "GET #join" do
+    context "with valid params" do
+      it "joins to a new SpaceMembership" do
+        expect {
+          get :join_space_membership, params: {space_membership: valid_attributes}, session: valid_session
+        }.to change(SpaceMembership, :count).by(1)
+      end
+
+      it "assigns a newly created space_membership as @space_membership" do
+        get :join_space_membership, params: {space_membership: valid_attributes}, session: valid_session
+        expect(assigns(:space_membership)).to be_a(SpaceMembership)
+        expect(assigns(:space_membership)).to be_persisted
+      end
+
+      it "redirects to the created space_membership" do
+        get :join_space_membership, params: {space_membership: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(SpaceMembership.last)
+      end
+    end
+  end
+
 end

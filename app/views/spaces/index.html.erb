@@ -1,35 +1,37 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Spaces</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Visibility</th>
-      <th>Owner</th>
-      <th colspan="3"></th>
+      <th><% t('.name') %></th>
+      <th><% t('.description') %></th>
+      <th><% t('.visibility') %></th>
+      <th><% t('.owner') %></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @spaces.each do |space| %>
-      <tr>
-        <td><%= space.name %></td>
-        <td><%= space.description %></td>
-        <td><%= space.visibility.to_s %></td>
-        <td><%= space.user.name %></td>
-        <% if current_user.spaces.include? space %>
-          <% @membership = current_user.space_memberships.where(:space_id => space.id).first %>
-          <td><%= link_to t('.leave'), leave_space_membership_path(:id => space.id) %></td>
-        <% else %>
-          <td><%= link_to t('.join'), join_space_membership_path(:id => space.id) %></td>
-        <% end %>
-        <td><%= link_to t('.show'), space %></td>
-        <td><%= link_to t('.edit'), edit_space_path(space) %></td>
-        <td><%= link_to t('.destroy'), space, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if ( ((space.visibility.to_s == 'secret') && (current_user.spaces.include? space)) || (space.visibility.to_s != 'secret') ) %>
+        <%# @membership = current_user.space_memberships.where(:space_id => space.id).first %>
+        <tr>
+          <td><%= space.name %></td>
+          <td><%= space.description %></td>
+          <td><%= space.visibility.to_s %></td>
+          <td><%= space.user.name %></td>
+
+          <% if current_user.spaces.include? space %>
+            <td><%= link_to t('.leave'), leave_space_membership_path(:id => space.id) %></td>
+          <% else %>
+            <td><%= link_to t('.join'), join_space_membership_path(:id => space.id) %></td>
+          <% end %>
+
+          <td><%= link_to t('.show'), space %></td>
+          <td><%= link_to t('.edit'), edit_space_path(space) %></td>
+          <td><%= link_to t('.destroy'), space, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

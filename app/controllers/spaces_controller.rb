@@ -5,6 +5,12 @@ class SpacesController < InheritedResources::Base
   def show
     @space = Space.where(id: params[:id]).includes(:post).take
     @post = Post.new(space_id: params[:id])
+
+    unless (@space.visibility.to_s == 'open') || (current_user.spaces.include? @space)
+      flash[:notice] = "You are not currently a member of this private/secret space"
+      redirect_to spaces_path
+    end
+
   end
 
   # POST /users
@@ -15,6 +21,9 @@ class SpacesController < InheritedResources::Base
 
     respond_to do |format|
       if @space.save
+        @space_membership = current_user.space_memberships.build(:space_id => @space.id)
+        @space_membership.save
+
         format.html { redirect_to @space, notice: 'Space was successfully created.' }
         format.json { render :show, status: :created, location: @space }
       else

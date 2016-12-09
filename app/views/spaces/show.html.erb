@@ -5,9 +5,9 @@
   <%= @space.name %>
 </h2>
 
-<h3>
+<p>
   <%= @space.description %>
-</h3>
+</p>
 
 <p>
   <strong>Visibility:</strong>
@@ -19,22 +19,18 @@
   <%= @space.user.name %>
 </p>
 
-<div class="row">
-  <div class="large-6 large-centered columns">
-  
-    <div class="panel">
-      <h4><%= t 'New Post' %></h4>
-      <%= render :partial => "posts/form", locals: {post: @post} %>
-    </div>
-    
-    <hr>
-    
-    <% if @space.post.first.nil? %>
-      <b><%= t 'No posts yet' %></b>
-    <% else %>
-      <% @space.post.order("created_at desc").each do |post| %>
-      <%= render :partial => "posts/post", locals: {post: post} %>
-      <% end %>
-    <% end %>
-  </div>
-</div>  
+<br /><br />
+<div class="panel">
+  <h4><%= t 'New Post' %></h4>
+  <%= render :partial => "posts/form", locals: {post: @post} %>
+</div>
+
+<hr>
+
+<% if @space.post.first.nil? %>
+  <b><%= t 'No posts yet' %></b>
+<% else %>
+  <% @space.post.order("created_at desc").each do |post| %>
+  <%= render :partial => "posts/post", locals: {post: post} %>
+  <% end %>
+<% end %>  

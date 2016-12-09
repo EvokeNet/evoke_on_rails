@@ -2,6 +2,7 @@ class SpaceMembershipsController < InheritedResources::Base
 
   def join
   	@space_membership = current_user.space_memberships.build(:space_id => params[:id])
+    
   	if @space_membership.save
   		flash[:notice] = "You have joined this space"
   		redirect_to spaces_path
@@ -12,7 +13,7 @@ class SpaceMembershipsController < InheritedResources::Base
   end
 
   def leave
-	@space_membership = current_user.space_memberships.find_by(:space_id => params[:id])
+	  @space_membership = current_user.space_memberships.find_by(:space_id => params[:id])
 
   	if @space_membership.destroy
   		flash[:notice] = "You have unjoined this space"

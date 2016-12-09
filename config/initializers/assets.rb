@@ -11,3 +11,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( spaces.css )
 Rails.application.config.assets.precompile += %w( posts.css )
 Rails.application.config.assets.precompile += %w( space_memberships.css )
+Rails.application.config.assets.precompile += %w( home.css )
